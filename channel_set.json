@@ -1,0 +1,26 @@
+{
+    "channels": [
+        {
+            "channel_title": "Blog",
+            "field_group": "blog",
+            "cat_groups": [
+                "Blog"
+            ]
+        }
+    ],
+    "status_groups": [],
+    "category_groups": [
+        {
+            "name": "Blog",
+            "sort_order": "c",
+            "categories": [
+                "News",
+                "Personal",
+                "Photos",
+                "Videos",
+                "Music"
+            ]
+        }
+    ],
+    "upload_destinations": []
+}
