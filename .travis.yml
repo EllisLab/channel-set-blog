@@ -15,19 +15,20 @@ script:
   - vendor/bin/jsonlint custom_fields/**/*
 
 before_deploy:
-  - rm -rf ./.*
-  - rm -rf composer.*
-  - rm -rf README.md
+  - rm -rf ./.editorconfig
+  - rm -rf ./.gitignore
+  - rm -rf ./.travis.yml
+  - rm -rf ./vendor/
+  - rm -rf ./composer.*
+  - rm -rf ./README.md
   - zip -r 'blog' .
 
 deploy:
   provider: releases
   api_key:
-    secure: mksWi0izhEWhU3ANoUxPQ0joBy4yCwiu7Y17HjvxxVYDuVXM/73ie1zQ34AFCtts4FxNmwrT1tAxVksDa41k1a6x3paxfcT6PySletw4RB3T3OmxNO4HYsvmtSL4DVWw7ru5btlFTVMB+cClqAP3u+T+14QPOrYfYJWqz5ckf+w=
+    secure: GgCLZqJlxxgIChg4YPgYOFJv4tzdvBCJO8Y+QIz0DtkTT18gFdSpDqiSeGT/RHUUVcKQx7Ke9qC71eASCkrldTnQC5rSQdoYait39xiuSo7uqVW37TFE0C+saBJ4DFBOpjoEfFMq2y5B0uqjLTEgkFeRHGavvTFAVpfQzQfNwo2Ih3iMpdcrp3D/i7fHSE9mtwJWHHMz1IHyP4O+RUNgTAMrrMUP/TQUO941a/T1yN87ShQaJHzgl288gHKKu17lzc/aehBQf00fAxsLNukdWQgyIABgQM1de1AfckNI+A2vBYBuzsXLe3L8AmYQ7jbAAVWHFrUuzNHq56bIz5MKWdM4yMO+ol4fCPsdb6Og4OOpPPCbjS45rSvUh7736CVPK0fsl+xL6e4twazNcyjVbBBgwTEEJSZ+w/2WMLUB8K8bG8CxQ9dIJ3/pJBz2jttIQ9p5hpnWsDBrlD90s0mllM18O6mUUSme43Amm6X3XgFTLz4OHmttwGoTuf2lOL4Rf7jJtyYg4BMmaLWCUZEY80g2fL2oYYU4SkG96AEzGX6RbEucj7bnksTkjPZdAcRUoNwvUBZ+xdP9MpFZJY3ImJCW/Rfv/2ZX0qSQtz1zIm84UJCmM6FQoWBHixxCU33SYALL5LJCrB3L7+tNs9v8GMQdu9VoXLwm4FZdw38AYVU=
   file: blog.zip
-  skip_cleanup: true
   on:
-    repo: EllisLab/channel-set-blog
     php: 7.0
     tags: true
-    condition: $TRAVIS_PULL_REQUEST = false
+    repo: EllisLab/channel-set-blog
