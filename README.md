@@ -1,6 +1,58 @@
 # Blog Channel Set
 
-Quickly create a Blog Channel in your ExpressionEngine install with this Channel Set.
+The Blog Channel Set comes with custom fields, statuses, and categories to get your blog up and running fast. Here’s what’s inside:
+
+### Custom Fields
+
+* `{blog_content}`: a Textarea for the blog post’s content
+* `{blog_image}`: a File field for a featured image for the blog post
+
+### Statuses
+
+* Open: published
+* Closed: not published
+* Featured: to call attention to a blog post, typically on the homepage
+
+### Categories
+
+* News
+* Personal
+* Photos
+* Videos
+* Music
+
+### Sample Tags
+
+```
+{exp:channel:entries channel='blog' limit='1' require_entry='yes'}
+	{if no_results}
+		{redirect='404'}
+	{/if}
+
+	<h1>Blog Channel Set</h1>
+
+	{if has_categories}
+		<div>Categories:
+			<ul>
+				{categories}
+					<li><a href="{path='blog/index'}">{category_name}</a></li>
+				{/categories}
+			</ul>
+		</div>
+	{/if}
+
+	{if blog_image}
+		{blog_image}
+			<figure>
+				<img src="{blog_image:image}" alt="{blog_image:caption}">
+				<figcaption>{blog_image:caption}</figcaption>
+			</figure>
+		{/blog_image}
+	{/if}
+
+	{blog_content}
+{/exp:channel:entries}
+```
 
 ## License
 
